@@ -61,6 +61,9 @@ var ubiqStartReward = big.NewInt(8e+18)
 // params for Octaspace
 var octaspaceStartReward = big.NewInt(650e+16)
 
+// params for Zether
+var zetherStartReward = big.NewInt(10000)
+
 // params for expanse
 const byzantiumHardForkHeight = 800000
 
@@ -111,6 +114,8 @@ func NewBlockUnlocker(cfg *UnlockerConfig, backend *storage.RedisClient, network
 	} else if network == "ubiq" {
 		// nothing needs configuring here, simply proceed.
 	} else if network == "octaspace" {
+		// nothing needs configuring here, simply proceed.
+	} else if network == "zether" {
 		// nothing needs configuring here, simply proceed.
 	} else if network == "universal" {
 		// nothing needs configuring here, simply proceed.
@@ -337,6 +342,12 @@ func (u *BlockUnlocker) handleBlock(block *rpc.GetBlockReply, candidate *storage
 		uncleReward := new(big.Int).Div(reward, big32)
 		rewardForUncles := big.NewInt(0).Mul(uncleReward, big.NewInt(int64(len(block.Uncles))))
 		reward.Add(reward, rewardForUncles)
+	} else if u.config.Network == "zether" {
+		reward = getConstRewardZether(candidate.Height)
+		// Add reward for including uncles
+		uncleReward := new(big.Int).Div(reward, big32)
+		rewardForUncles := big.NewInt(0).Mul(uncleReward, big.NewInt(int64(len(block.Uncles))))
+		reward.Add(reward, rewardForUncles)
 	} else if u.config.Network == "universal" {
 		reward = getConstRewardUniversal(candidate.Height)
 		// Add reward for including uncles
@@ -402,6 +413,8 @@ func handleUncle(height int64, uncle *rpc.GetBlockReply, candidate *storage.Bloc
 		reward = getUncleRewardEthereum(new(big.Int).SetInt64(uncleHeight), new(big.Int).SetInt64(height), getConstRewardUbiq(height))
 	} else if cfg.Network == "octaspace" {
 		reward = getUncleRewardOctaspace(new(big.Int).SetInt64(uncleHeight), new(big.Int).SetInt64(height), getConstRewardOctaspace(height))
+	} else if cfg.Network == "zether" {
+		reward = getUncleRewardZether(new(big.Int).SetInt64(uncleHeight), new(big.Int).SetInt64(height), getConstRewardZether(height))
 	} else if cfg.Network == "universal" {
 		reward = getUncleRewardUniversal(new(big.Int).SetInt64(uncleHeight), new(big.Int).SetInt64(height), getConstRewardUniversal(height))
 	}
@@ -857,6 +870,53 @@ func getConstRewardOctaspace(height int64) *big.Int {
 
 // Octaspace Uncle rw
 func getUncleRewardOctaspace(uHeight *big.Int, height *big.Int, reward *big.Int) *big.Int {
+	r := new(big.Int)
+	r.Add(uHeight, big8)
+	r.Sub(r, height)
+	r.Mul(r, reward)
+	r.Div(r, big8)
+
+	return r
+}
+
+// Zether
+func getConstRewardZether(height int64) *big.Int {
+	// Rewards
+	reward := new(big.Int).Set(zetherStartReward)
+	headerNumber := big.NewInt(height)
+
+	if headerNumber.Cmp(big.NewInt(100_000)) > 0 {
+		reward = big.NewInt(9000)
+		// ArcturusBlock 5.00
+	}
+	if headerNumber.Cmp(big.NewInt(200_000)) > 0 {
+		reward = big.NewInt(8000)
+		// OldenburgBlock 4.00
+	}
+	if headerNumber.Cmp(big.NewInt(300_000)) > 0 {
+		reward = big.NewInt(7000)
+		// ZagamiBlock 3.50
+	}
+	if headerNumber.Cmp(big.NewInt(400_000)) > 0 {
+		reward = big.NewInt(6000)
+		// SpringwaterBlock 3.00
+	}
+	// PolarisBlock
+	if headerNumber.Cmp(big.NewInt(500_000)) >= 0 {
+		reward = big.NewInt(5000)
+		// PolarisBlock 2.80
+	}
+
+	if headerNumber.Cmp(big.NewInt(600_000)) >= 0 {
+		reward = big.NewInt(4000)
+		// MahasimBlock 2.30
+	}
+
+	return reward
+}
+
+// Zether Uncle rw
+func getUncleRewardZether(uHeight *big.Int, height *big.Int, reward *big.Int) *big.Int {
 	r := new(big.Int)
 	r.Add(uHeight, big8)
 	r.Sub(r, height)
