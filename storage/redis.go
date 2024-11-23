@@ -12,7 +12,7 @@ import (
 
 	"log"
 
-	"github.com/yuriy0803/open-etc-pool-friends/util"
+	"github.com/xbobekf/open-etc-pool-friends/util"
 	"gopkg.in/redis.v3"
 )
 

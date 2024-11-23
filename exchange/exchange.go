@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yuriy0803/open-etc-pool-friends/storage"
-	"github.com/yuriy0803/open-etc-pool-friends/util"
+	"github.com/xbobekf/open-etc-pool-friends/storage"
+	"github.com/xbobekf/open-etc-pool-friends/util"
 )
 
 type ExchangeProcessor struct {

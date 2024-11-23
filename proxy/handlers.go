@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/yuriy0803/open-etc-pool-friends/rpc"
-	"github.com/yuriy0803/open-etc-pool-friends/util"
+	"github.com/xbobekf/open-etc-pool-friends/rpc"
+	"github.com/xbobekf/open-etc-pool-friends/util"
 )
 
 // A regular expression pattern that matches a string starting with "0x"

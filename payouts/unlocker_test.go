@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/yuriy0803/open-etc-pool-friends/rpc"
-	"github.com/yuriy0803/open-etc-pool-friends/storage"
+	"github.com/xbobekf/open-etc-pool-friends/rpc"
+	"github.com/xbobekf/open-etc-pool-friends/storage"
 )
 
 func TestMain(m *testing.M) {

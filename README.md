@@ -146,7 +146,7 @@ You can open firewall by opening 80,443,8008,30305.
 
 Clone & compile:
     
-    git clone https://github.com/yuriy0803/open-etc-pool-friends.git
+    git clone https://github.com/xbobekf/open-etc-pool-friends.git
     cd open-etc-pool-friends
    
     go build
