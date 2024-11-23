@@ -15,14 +15,14 @@ module.exports = function (environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//192.168.22.96/',
+      ApiUrl: '//poor-slav-pool.org/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://192.168.22.96',
+      HttpHost: 'http://poor-slav-pool.org',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: '192.168.22.96',
+      StratumHost: 'poor-slav-pool.org',
       StratumPort: 8008,
 
       // The ETC network
