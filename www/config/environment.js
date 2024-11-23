@@ -15,14 +15,14 @@ module.exports = function (environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//192.168.178.41/',
+      ApiUrl: '//192.168.22.96/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://192.168.178.41',
+      HttpHost: 'http://192.168.22.96',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: '192.168.178.41',
+      StratumHost: '192.168.22.96',
       StratumPort: 8008,
 
       // The ETC network
