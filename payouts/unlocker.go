@@ -62,7 +62,7 @@ var ubiqStartReward = big.NewInt(8e+18)
 var octaspaceStartReward = big.NewInt(650e+16)
 
 // params for Zether
-var zetherStartReward = big.NewInt(10000)
+var zetherStartReward = big.NewInt(10000e+5)
 
 // params for expanse
 const byzantiumHardForkHeight = 800000
@@ -886,29 +886,29 @@ func getConstRewardZether(height int64) *big.Int {
 	headerNumber := big.NewInt(height)
 
 	if headerNumber.Cmp(big.NewInt(100_000)) > 0 {
-		reward = big.NewInt(9000)
+		reward = big.NewInt(9000e+5)
 		// ArcturusBlock 5.00
 	}
 	if headerNumber.Cmp(big.NewInt(200_000)) > 0 {
-		reward = big.NewInt(8000)
+		reward = big.NewInt(8000e+5)
 		// OldenburgBlock 4.00
 	}
 	if headerNumber.Cmp(big.NewInt(300_000)) > 0 {
-		reward = big.NewInt(7000)
+		reward = big.NewInt(7000e+5)
 		// ZagamiBlock 3.50
 	}
 	if headerNumber.Cmp(big.NewInt(400_000)) > 0 {
-		reward = big.NewInt(6000)
+		reward = big.NewInt(6000e+5)
 		// SpringwaterBlock 3.00
 	}
 	// PolarisBlock
 	if headerNumber.Cmp(big.NewInt(500_000)) >= 0 {
-		reward = big.NewInt(5000)
+		reward = big.NewInt(5000e+5)
 		// PolarisBlock 2.80
 	}
 
 	if headerNumber.Cmp(big.NewInt(600_000)) >= 0 {
-		reward = big.NewInt(4000)
+		reward = big.NewInt(4000e+5)
 		// MahasimBlock 2.30
 	}
 
