@@ -15,14 +15,14 @@ module.exports = function (environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//poor-slav-pool.org/',
+      ApiUrl: '//zether-web.poor-slav-pool.org/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://poor-slav-pool.org',
+      HttpHost: 'http://zether.poor-slav-pool.org',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: 'poor-slav-pool.org',
+      StratumHost: 'zether.poor-slav-pool.org',
       StratumPort: 4084,
 
       // The ETC network
