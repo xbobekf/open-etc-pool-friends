@@ -23,7 +23,7 @@ module.exports = function (environment) {
 
       // Stratum mining endpoint
       StratumHost: 'poor-slav-pool.org',
-      StratumPort: 8008,
+      StratumPort: 4084,
 
       // The ETC network
       Unit: 'ETC',
