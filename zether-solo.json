@@ -81,6 +81,11 @@
 			"name": "main",
 			"url": "http://192.168.22.238:8545",
 			"timeout": "10s"
+		},
+		{
+			"name": "main1",
+			"url": "http://192.168.22.190:8545",
+			"timeout": "10s"
 		}
 	],
 	"redis": {
