@@ -15,7 +15,7 @@ module.exports = function (environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//zether-web.poor-slav-pool.org/',
+      ApiUrl: '//zether-pool.poor-slav-pool.org/',
 
       // HTTP mining endpoint
       HttpHost: 'http://zether.poor-slav-pool.org',
