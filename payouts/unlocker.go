@@ -62,7 +62,7 @@ var ubiqStartReward = big.NewInt(8e+18)
 var octaspaceStartReward = big.NewInt(650e+16)
 
 // params for Zether
-blockReward = math.MustParseBig256("10000000000000000000000")
+var zetherStartReward = math.MustParseBig256("10000000000000000000000")
 
 // params for expanse
 const byzantiumHardForkHeight = 800000
@@ -882,24 +882,24 @@ func getConstRewardZether(height int64) *big.Int {
 	headerNumber := big.NewInt(height)
 
 	if headerNumber.Cmp(big.NewInt(100_000)) > 0 {
-		blockReward = math.MustParseBig256("9000000000000000000000") // 9,000 coins in wei
+		reward = math.MustParseBig256("9000000000000000000000") // 9,000 coins in wei
 	}
 	if headerNumber.Cmp(big.NewInt(200_000)) > 0 {
-		blockReward = math.MustParseBig256("8000000000000000000000") // 8,000 coins in wei
+		reward = math.MustParseBig256("8000000000000000000000") // 8,000 coins in wei
 	}
 	if headerNumber.Cmp(big.NewInt(300_000)) > 0 {
-		blockReward = math.MustParseBig256("7000000000000000000000") // 8,000 coins in wei
+		reward = math.MustParseBig256("7000000000000000000000") // 8,000 coins in wei
 	}
 	if headerNumber.Cmp(big.NewInt(400_000)) > 0 {
-		blockReward = math.MustParseBig256("6000000000000000000000") // 8,000 coins in wei
+		reward = math.MustParseBig256("6000000000000000000000") // 8,000 coins in wei
 	}
 	// PolarisBlock
 	if headerNumber.Cmp(big.NewInt(500_000)) >= 0 {
-		blockReward = math.MustParseBig256("5000000000000000000000") // 8,000 coins in wei
+		reward = math.MustParseBig256("5000000000000000000000") // 8,000 coins in wei
 	}
 
 	if headerNumber.Cmp(big.NewInt(600_000)) >= 0 {
-		blockReward = math.MustParseBig256("4000000000000000000000") // 8,000 coins in wei
+		reward = math.MustParseBig256("4000000000000000000000") // 8,000 coins in wei
 	}
 
 	return reward
