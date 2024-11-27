@@ -113,7 +113,7 @@
 		"isLondonHardForkEnabled": false
 	},
 	"payouts": {
-		"enabled": false,
+		"enabled": true,
 		"requirePeers": 1,
 		"interval": "20m",
 		"daemon": "http://192.168.22.238:8545",
