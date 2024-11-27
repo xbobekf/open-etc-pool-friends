@@ -1,8 +1,8 @@
 {
     "threads": 12,
-    "coin": "zth-solo",
+    "coin": "zether",
     "name": "zth-solo",
-    "pplns": 0,
+    "pplns": 1000,
     "network": "zether",
     "coin-name":"zether",
 	"algo": "ethash",
